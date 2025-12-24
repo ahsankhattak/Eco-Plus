@@ -547,3 +547,17 @@ body {
     cursor: pointer;
     font-size: 11px;
 }
+/* This code only runs on screens smaller than 768px (phones) */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+  .container {
+    width: 100%; /* Makes your content fill the phone screen */
+  }
+  img {
+    max-width: 100%; /* Prevents images from being wider than the phone */
+    height: auto;
+  }
+}
+
