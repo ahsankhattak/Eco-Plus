@@ -1,0 +1,549 @@
+body{
+    background-color: #e9edeaba;
+}
+
+#scan-btn {
+    background-color: #166534; /* Deep Forest Green */
+    color: white;              /* White text */
+    padding: 15px 30px;        /* Makes the button larger */
+    border: none;              /* Removes the ugly grey border */
+    border-radius: 20px;       /* Rounds the corners perfectly */
+    font-size: 18px;           /* Makes the text easier to read */
+    cursor: pointer;           /* Shows a hand icon when you hover */
+    font-weight: bold;         /* Makes the text pop */
+}
+#scan-btn :hover{
+background-color:#1a7f4180;;
+}
+.herocontainer {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    background-color: #000; /* Backup color in case image fails */
+}
+.headercontainer{
+    display: flex;               /* Turns on the Flexbox engine */
+    flex-direction: column;      /* Stacks items vertically */
+    justify-content: center;     /* Centers them horizontally */
+    align-items: center;         /* Centers them vertically */
+    height: 200px;               /* Gives the header some "breathing room" */
+   top: 50%;
+   left: 50%;
+    color: rgba(3, 2, 2, 0.491);
+    position: absolute;
+}
+.footercontainer{
+    display: flex;
+    flex-direction: column; /* Stacks them vertically */
+    align-items: center;
+    padding: 20px;
+}
+.pulsecard {
+    font-size: large;
+    display: block; 
+    background-color: #ffffff;
+    margin: 15px auto; /* Centers them and adds space between */
+    padding: 20px;
+    width: 80%; /* Makes them look like wide dashboard cards */
+    border-radius: 12px;
+    border-left: 6px solid #1B5E20; /* The green accent seen in your screen */
+    transition: all 0.3s ease-in-out; /* Smooth motion */
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Soft starting shadow */
+}
+
+/* The hover effect for all 3 */
+.pulsecard:hover {
+    transform: translateY(-8px); /* Lifts up */
+    border-left: 10px solid #00c853; /* Thickens and brightens the green line */
+    box-shadow: 0 12px 20px rgba(0,0,0,0.1); /* Deep shadow makes it look higher */
+    background-color: #f9fff9; /* Very subtle green tint */
+}
+.mainvisual {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1; /* Layer 1: The Bottom */
+}
+.herotext {
+    position: relative;
+    z-index: 2; /* Layer 2: The Top */
+    text-align: center;
+    padding-top: 80px;
+    color: #ffffffc0; /* Sets text to white */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9); /* Adds a dark glow for readability */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Cleaner tech font */
+}
+.herotext h1, .herotext h2 {
+    background: none;
+    border: none;
+    text-shadow: 2px 2px 15px rgba(0,0,0,1); /* Makes white text readable on clouds */
+}
+.connecting {
+    background-color: #2e7d32 !important;
+    opacity: 0.8;
+    cursor: wait;
+    animation: pulse-animation 1.5s infinite;
+}
+
+@keyframes pulse-animation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+#system-status::after {
+    content: " _";
+    animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+.footercontainer a{
+    color: inherit;
+    text-decoration: none;
+}
+.footercontainer a:visited{
+    color: inherit;
+
+}
+.footercontainer :hover{
+    background-color: #f9f9f9;;
+    cursor: pointer;
+}
+    
+.header{
+border-bottom: #00c853e2;
+text-align: center;
+}
+.zero-container {
+    position: relative;
+    height: 80vh; /* Makes it fill the whole screen */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Keeps the blur from leaking out */
+    background-color: black; /* Backup color */
+}
+
+/* This creates the blurred satellite background */
+.zero-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Using your image from the file explorer */
+    background-image: url('img1.jpg'); 
+    background-size: cover;
+    background-position: center;
+    
+    /* The Blur and Dim effects */
+    filter: blur(8px) brightness(0.5); 
+    
+    /* Slight zoom to hide the 'fuzzy' edges of the blur */
+    transform: scale(1.1); 
+    z-index: 1;
+}
+
+/* This styles your existing .header class */
+.header {
+    position: relative;
+    z-index: 2; /* Keeps text above the blurred image */
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif; /* Clean high-end font */
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Makes the white pop */
+    max-width: 80%;
+}
+.vital-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* This centers the boxes horizontally */
+    gap: 25px;              /* This creates the gap between boxes */
+    padding: 40px 20px;
+    width: 100%;
+}
+.vital-item {
+    display: flex;
+    background: #ffffff;
+    width: 100%;            /* Makes them try to fill the space */
+    max-width: 800px;       /* Keeps them from getting too wide on big screens */
+    min-height: 80px;       /* Ensures a nice consistent height */
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-left: 6px solid #2e7d32; /* That green accent you have */
+    transition: all 0.3s ease;      /* Smooth movement for hover */
+    overflow: hidden;
+    font-size: 1.15rem;
+
+    margin: 20px auto;  /* 20px gap on top/bottom, 'auto' centers it */
+    width: 90%;         /* Keeps it wide and consistent */
+    max-width: 800px;   /* Matches your container limit */
+}
+.card-content {
+    padding: 20px 30px;          /* This creates the neat gap INSIDE the box */
+}
+body {
+    display: flex;
+    flex-direction: column; /* Keeps things stacked vertically */
+    align-items: center;    /* Pushes everything to the horizontal center */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    
+}
+.vital-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+.one-container {
+    position: relative;
+    height: 80vh; /* Makes it fill the whole screen */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Keeps the blur from leaking out */
+    background-color: rgba(0, 0, 0, 0.071); /* Backup color */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: #ffffff;
+    background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=80');
+}
+.one-container::before{
+    content:"";
+    position:absolute;
+    top: 0;left: 0;width: 100%;height: 100%;
+    background: rgba(0, 0, 0, 0.4); 
+    z-index: 1;
+}
+.contet-box{
+    position: relative;
+    z-index: 2; /* This keeps the text ABOVE the image and tint */
+    max-width: 80%;
+}
+.textforest {
+    position: relative;
+    z-index: 2; 
+    /* 1. CHANGE COLOR HERE: Use white (#ffffff) or light mint (#d8f3dc) */
+    color: #ffffff; 
+    
+    /* 2. CHANGE SIZE HERE: Increase to 4rem or 5rem for a bigger title */
+    font-size: 3rem; 
+    
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    
+    /* 3. OPTIONAL: Increase the shadow so it stands out more */
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9); 
+    max-width: 100%;
+}
+.description{
+    position: relative;
+    z-index: 2;
+    font-size: 2rem;
+    
+}
+.content-box h1 {
+    color: #D8F3DC;
+    font-size: 3rem;  
+    font-family: 'Segoe UI', sans-serif;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.096);
+    margin-bottom: 10px;
+}
+.pulse-divider {
+    width: 50%;               /* Keeps the line centered and sleek */
+    height: 2px;              /* Thin, professional look */
+    background: linear-gradient(to right, transparent, #2d6a4f, #95d5b2, #2d6a4f, transparent);
+    margin: 20px auto 40px;   /* Creates the perfect gap above and below */
+    border-radius: 50%;
+    animation: pulse-glow 3s infinite ease-in-out;
+}
+
+/* This makes the line "breathe" or glow like a live monitor */
+@keyframes pulse-glow {
+    0%, 100% { opacity: 0.3; transform: scaleX(0.9); }
+    50% { opacity: 1; transform: scaleX(1.1); }
+}
+.vital-header{
+    text-align: center;
+    font-size: 2.5rem;
+    color:#333; 
+    opacity: 0;
+    transform: translate(20px);
+    animation: fadeInUp 1.2s ease-out forwards;
+}
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Slides up to its spot */
+    }
+}
+
+.pulsecard {
+    display: flex;
+    flex-direction: row;  /* Puts emoji at the START */
+    align-items: center;  /* Keeps emoji and text lined up */
+    gap: 15px;            /* Space after the emoji */
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    width: 650px;         /* This makes all three boxes the exact same width */
+    min-height: 80px;
+    
+                                  /* THIS ADDS THE GREEN BAR (The "Square" on the side) */
+    border-left: 8px solid #2e7d32; 
+    
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-decoration: none !important;
+    color: #333;
+    cursor: pointer;      /* Makes mouse turn into a hand */
+}
+.bullet-emoji {
+    font-size: 25px;
+    flex-shrink: 0;       /* Stops emoji from getting squished */
+}
+
+.card-link {
+    text-decoration: none !important; /* Removes blue link underline */
+}
+.card-content {
+    display: flex;
+    flex-direction: row;  /* Puts symbol at the START */
+    align-items: center;  /* Keeps symbol and text level */
+    gap: 15px;            /* Space after symbol */
+    padding: 20px;
+    background: white;
+    width: 100%;          /* Fills the vital-item container */
+}
+.symbol {
+    font-size: 28px;      /* Makes it look like a bullet point */
+    flex-shrink: 0;       /* Prevents the symbol from getting squished */
+}
+.acent-line.air {
+    width: 10px;
+    background-color: #2e7d32;
+    flex-shrink: 0;
+}
+.card-content p{
+    color: #1a1a1a;       /* This is a very dark, professional gray-black */
+    line-height: 1.6;     /* This adds a little space between lines for readability */
+    font-size: 1.05rem;   /* This makes the font slightly larger and clearer */
+}
+.card-content strong {
+    color: #000000;       /* Pure black for the titles */
+    font-weight: 800;     /* Extra bold */
+}
+.hero-image-section {
+    width: 100%;
+    height: 450px; /* Adjust this height to fit your image */
+    background-image: url('img1.jpg'); /* Replace with your actual image file name */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;    /* Centers text vertically */
+    justify-content: center; /* Centers text horizontally */
+    position: relative;
+}
+
+/* This styles the text box INSIDE the image */
+.zero-container {
+    text-align: center;
+    padding: 20px;
+    max-width: 800px;
+}
+
+.hero-section {
+   width: 100%;
+    height: 450px; /* Adjust height to match your image size */
+    background-image: url('img1.jpg'); 
+    background-size: cover;
+    background-position: center;
+    
+    /* THE CENTER MISSING PIECE */
+    display: flex;
+    flex-direction: column; /* Stacks the 3 lines vertically */
+    justify-content: center; /* Centers vertically */
+    align-items: center;     /* Centers horizontally */
+    text-align: center;
+}
+
+.hero-overlay {
+    background: rgba(255, 255, 255, 0.1); /* Subtle "glass" effect */
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);            /* Blurs image behind text for clarity */
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+/* Make the Title DARK and BOLD */
+.hero-title {
+    font-size: 4rem;
+    color:#0A192F;      /* Pure Black */
+    font-weight: 900;    /* Extra Bold */
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    align-items: center;
+}
+
+/* Make the Subtitle stand out */
+.hero-subtitle {
+    font-size: 2rem;
+    color:#0A192F;      /* Deep Charcoal */
+    font-style: italic;
+    margin: 10px 0;
+    font-weight: 700;
+}
+
+/* The third line */
+.hero-description {
+    font-size: 1.5rem;
+    color:#0A192F;      /* Dark Gray */
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+.hero-section {
+    width: 100%;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Water Specific Background - REPLACES THE CAMERA PIC */
+.water-bg {
+    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
+                url('https://images.unsplash.com/photo-1439405326854-014607f694d7?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Glass Overlay for Text Clarity */
+.hero-overlay {
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(8px); /* Safari support fix */
+    backdrop-filter: blur(8px);
+    padding: 40px;
+    border-radius: 20px;
+}
+
+/* Dark and Impressive Typography */
+.hero-title {
+    font-size: 4rem;
+    color: #011627; /* Deep Midnight Teal */
+    font-weight: 900;
+    margin: 0;
+    letter-spacing: 6px;
+    text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.4);
+}
+
+.hero-subtitle {
+    font-size: 1.6rem;
+    color: #0b1b32;
+    font-style: italic;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color:  #0b1b32;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+/* Card Styling */
+.vital-item {
+    display: flex;
+    width: 750px;
+    margin: 25px auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+/* Ocean Blue Sidebar */
+.acent-line.water {
+    width: 12px;
+    background-color: #0077b6; 
+}
+
+.card-content {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+.text-stack p {
+    margin: 3px 0;
+    color: #1a1a1a; /* Darker text for readability */
+}
+
+.symbol {
+    font-size: 35px;
+}
+
+.site-footer {
+    background-color: #f9f9f9; /* Light grey background like the image */
+    padding: 20px 50px;
+    border-top: 1px solid #ddd;
+}
+
+.footer-container-inner {
+    display: flex;
+    justify-content: space-between; /* Pushes left and right sections apart */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-left a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: #555;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.social-icons a {
+    margin: 0 8px;
+    color: #333;
+    font-size: 18px;
+}
+
+.newsletter-btn {
+    background-color: #97bd3d; /* The green color from your image */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 11px;
+}
